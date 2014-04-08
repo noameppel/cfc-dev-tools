@@ -24,9 +24,11 @@ USAGE:
 1) Add Development Notes:
 
 Display a development note on the website:
+
     <?php devnote('Here is a development note.'); ?>
 
 Display structured information about an array using var_dump()
+
     <?php devnote($array); ?>
 
 2) Display Development Notes by appended ?devnote to any page:
