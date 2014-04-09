@@ -32,6 +32,8 @@ Display structured information about an array using var_dump()
     <?php $array = array("foo", "bar"); ?>
     <?php devnote($array); ?>
 
-2) Display Development Notes by appended ?devnote to any page:
+2) Display Development Notes by appending ?devnote to any page:
 
 E.g., http://localhost/about-us/?devnote
+
+The development notes which appear on the page as well as in the Chrome console.
