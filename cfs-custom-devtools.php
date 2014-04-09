@@ -17,7 +17,7 @@ Network: true
  */
 function devnote($note) {
 	if (ENVIRONMENT == 'DEVELOPMENT' && is_user_logged_in() && isset($_GET['devnote']) ) {
-		if (is_array($note)) {
+		if( is_array( $note ) || is_object( $note ) ) {
 			echo "<pre class='devnote'>";
 			var_dump($note);
 			echo "</pre>";
