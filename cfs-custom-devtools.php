@@ -21,8 +21,10 @@ function devnote($note) {
 			echo "<pre class='devnote'>";
 			var_dump($note);
 			echo "</pre>";
+			echo("<script>console.log('DEVNOTE: ".json_encode($note)."');</script>");
 		} else {
 			echo "<span class='devnote'>$note</span>";
+			echo("<script>console.log('DEVNOTE: ".$note."');</script>");
 		}
 	}
 }
