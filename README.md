@@ -8,7 +8,7 @@ This WordPress plugin allows you to place various development notes throughout y
 
 This plugin will also display in the page's footer the total number of SQL queries performed on the page and the total time required to generate the page.
 
-INSTALLATION:
+## INSTALLATION:
 
 1) Place in /wp-content/mu-plugins/ folder.
 
@@ -19,7 +19,7 @@ INSTALLATION:
 
 Use https://github.com/cleanforestco/wp-config/blob/master/wp-config.php as a reference.
 
-USAGE:
+## USAGE:
 
 1) Add Development Notes:
 
