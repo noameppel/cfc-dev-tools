@@ -36,4 +36,4 @@ Display structured information about an array using var_dump()
 
 E.g., http://localhost/about-us/?devnote
 
-The development notes which appear on the page as well as in the Chrome console.
+The development notes will display on the page as well as in the Chrome console.
