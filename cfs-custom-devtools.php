@@ -21,10 +21,10 @@ function devnote($note) {
 			echo "<pre class='devnote'>";
 			var_dump($note);
 			echo "</pre>";
-			echo("<script>console.log('DEVNOTE: ".json_encode($note)."');</script>");
+			echo("<script>console.log('%cDEVNOTE: %c".json_encode($note)." %cPROFILER: %c".timer_stop( 0, 5 )." seconds.', 'color: #000', 'color: red', 'color: #000', 'color: #0088cc');</script>");
 		} else {
 			echo "<span class='devnote'>$note</span>";
-			echo("<script>console.log('DEVNOTE: ".$note."');</script>");
+			echo("<script>console.log('%cDEVNOTE: %c".$note." %cPROFILER: %c".timer_stop( 0, 5 )." seconds.', 'color: #000', 'color: red', 'color: #000', 'color: #0088cc');</script>");
 		}
 	}
 }
