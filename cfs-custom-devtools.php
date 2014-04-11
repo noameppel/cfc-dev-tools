@@ -15,17 +15,21 @@ Network: true
  * @param  [string|array] $note
  * @echo strings and var_dump arrays
  */
-function devnote($note) {
+function devnote( $note, $print_to_screen=TRUE ) {
 	if (ENVIRONMENT == 'DEVELOPMENT' && is_user_logged_in() && isset($_GET['devnote']) ) {
-		if( is_array( $note ) || is_object( $note ) ) {
-			echo "<pre class='devnote'>";
-			var_dump($note);
-			echo "</pre>";
+		if (is_array($note) || is_object($note)):
 			echo("<script>console.log('%cDEVNOTE: %c".json_encode($note)." %cPROFILER: %c".timer_stop( 0, 5 )." seconds.', 'color: #000', 'color: red', 'color: #000', 'color: #0088cc');</script>");
-		} else {
-			echo "<span class='devnote'>$note</span>";
+			if ($print_to_screen):
+				echo "<pre class='devnote'>";
+				var_dump($note);
+				echo "</pre>";	
+			endif;
+		else:
 			echo("<script>console.log('%cDEVNOTE: %c".$note." %cPROFILER: %c".timer_stop( 0, 5 )." seconds.', 'color: #000', 'color: red', 'color: #000', 'color: #0088cc');</script>");
-		}
+			if ($print_to_screen):
+				echo "<span class='devnote'>$note</span>";
+			endif;		
+		endif;
 	}
 }
 
@@ -63,7 +67,7 @@ add_action('wp_footer', 'cfs_show_db_queries');
  * @echo CSS Style
  */
 function devnote_css() {
-	if (ENVIRONMENT == 'DEVELOPMENT' && is_user_logged_in() && isset($_GET['devnote']) ) {
+	if (ENVIRONMENT == 'DEVELOPMENT' && isset($_GET['devnote']) ) {
 		echo "
 		<style>
 		.devnote {
