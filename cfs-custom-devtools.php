@@ -4,19 +4,35 @@ Plugin Name: CFS DEV TOOLS
 Plugin URI: http://cleanforest.co
 Description: CFS Dev Tools
 Author: Noam Eppel
-Version: 1.0
+Version: 1.4
 Author URI: http://cleanforest.co
 License: GNU General Public License (Version 2 - GPLv2)
 Network: true
 */
 
 /**
+ * [check_devmode Sets DEVMODE constant]
+ * @return [DEVMODE] [true|false]
+ */
+function check_devmode() {
+	if (ENVIRONMENT == 'DEVELOPMENT' && is_user_logged_in() && isset($_GET['devnote']) ) {
+		define('DEVMODE', true);
+	} else {
+		define('DEVMODE', false);
+	}
+
+}
+
+add_action('wp_head', 'check_devmode');
+
+
+/**
  * [devnote Development Notes]
  * @param  [string|array] $note
  * @echo strings and var_dump arrays
  */
-function devnote( $note, $print_to_screen=TRUE ) {
-	if (ENVIRONMENT == 'DEVELOPMENT' && is_user_logged_in() && isset($_GET['devnote']) ) {
+function devnote( $note, $print_to_screen=true ) {
+	if (DEVMODE === true ) {
 		if (is_array($note) || is_object($note)):
 			echo("<script>console.log('%cDEVNOTE: %c".json_encode($note)." %cPROFILER: %c".timer_stop( 0, 5 )." seconds.', 'color: #000', 'color: red', 'color: #000', 'color: #0088cc');</script>");
 			if ($print_to_screen):
@@ -38,7 +54,7 @@ function devnote( $note, $print_to_screen=TRUE ) {
  * @echo in footer
  */
 function cfs_show_page_time() {
-	if (ENVIRONMENT == 'DEVELOPMENT' && is_user_logged_in() && isset($_GET['devnote']) ) {
+	if (DEVMODE === true ) {
     	echo "<div class='devnote'>CFS DB Queries " . get_num_queries() . ' queries in ' . timer_stop(0,3) . ' seconds.</div>';
     }
 
@@ -51,9 +67,9 @@ add_action('wp_footer', 'cfs_show_page_time');
  * NOTE: define('SAVEQUERIES', true ); must be set in wp-config.php
  */
 function cfs_show_db_queries() {
-	if (ENVIRONMENT == 'DEVELOPMENT' && SAVEQUERIES === true && is_user_logged_in() && isset($_GET['devnote']) ) {
+	if (DEVMODE === true && SAVEQUERIES === true) {
     	global $wpdb;
-    	echo "<h2>DISPLAY OF SQL QUERIES</h2>";
+    	echo "<h2 class='showqueries'>DISPLAY OF SQL QUERIES</h2>";
     	echo "<pre>";
     	print_r( $wpdb->queries );
     	echo "</pre>";
@@ -67,7 +83,7 @@ add_action('wp_footer', 'cfs_show_db_queries');
  * @echo CSS Style
  */
 function devnote_css() {
-	if (ENVIRONMENT == 'DEVELOPMENT' && isset($_GET['devnote']) ) {
+	if (DEVMODE === true) {
 		echo "
 		<style>
 		.devnote {
