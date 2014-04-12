@@ -4,27 +4,23 @@ Plugin Name: CFS DEV TOOLS
 Plugin URI: http://cleanforest.co
 Description: CFS Dev Tools
 Author: Noam Eppel
-Version: 1.4
+Version: 1.4.5
 Author URI: http://cleanforest.co
 License: GNU General Public License (Version 2 - GPLv2)
 Network: true
 */
 
 /**
- * [check_devmode Sets DEVMODE constant]
- * @return [DEVMODE] [true|false]
+ * [is_devmode checks to see if we are in developer's mode]
+ * @return [true|false]
  */
-function check_devmode() {
+function is_devmode() {
 	if (ENVIRONMENT == 'DEVELOPMENT' && is_user_logged_in() && isset($_GET['devnote']) ) {
-		define('DEVMODE', true);
-	} else {
-		define('DEVMODE', false);
+		return true;
 	}
-
 }
 
-add_action('wp_head', 'check_devmode');
-
+add_action('init', 'is_devmode');
 
 /**
  * [devnote Development Notes]
@@ -32,7 +28,7 @@ add_action('wp_head', 'check_devmode');
  * @echo strings and var_dump arrays
  */
 function devnote( $note, $print_to_screen=true ) {
-	if (DEVMODE === true ) {
+	if ( is_devmode() ) {
 		if (is_array($note) || is_object($note)):
 			echo("<script>console.log('%cDEVNOTE: %c".json_encode($note)." %cPROFILER: %c".timer_stop( 0, 5 )." seconds.', 'color: #000', 'color: red', 'color: #000', 'color: #0088cc');</script>");
 			if ($print_to_screen):
@@ -54,7 +50,7 @@ function devnote( $note, $print_to_screen=true ) {
  * @echo in footer
  */
 function cfs_show_page_time() {
-	if (DEVMODE === true ) {
+	if ( is_devmode() ) {
     	echo "<div class='devnote'>CFS DB Queries " . get_num_queries() . ' queries in ' . timer_stop(0,3) . ' seconds.</div>';
     }
 
@@ -67,7 +63,7 @@ add_action('wp_footer', 'cfs_show_page_time');
  * NOTE: define('SAVEQUERIES', true ); must be set in wp-config.php
  */
 function cfs_show_db_queries() {
-	if (DEVMODE === true && SAVEQUERIES === true) {
+	if (is_devmode() && SAVEQUERIES === true) {
     	global $wpdb;
     	echo "<h2 class='showqueries'>DISPLAY OF SQL QUERIES</h2>";
     	echo "<pre>";
@@ -83,7 +79,7 @@ add_action('wp_footer', 'cfs_show_db_queries');
  * @echo CSS Style
  */
 function devnote_css() {
-	if (DEVMODE === true) {
+	if ( is_devmode() ) {
 		echo "
 		<style>
 		.devnote {
