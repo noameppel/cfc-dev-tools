@@ -4,7 +4,7 @@ Plugin Name: CFS DEV TOOLS
 Plugin URI: http://cleanforest.co
 Description: CFS Dev Tools
 Author: Noam Eppel
-Version: 1.4.5
+Version: 1.5.0
 Author URI: http://cleanforest.co
 License: GNU General Public License (Version 2 - GPLv2)
 Network: true
