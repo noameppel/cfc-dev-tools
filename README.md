@@ -40,6 +40,6 @@ Optionally, pass a second parameter, false, to prevent the development note from
 
      <?php devnote('This will only display in the console', false); ?>
 
-2) Display Development Notes by appending ?devnote to any page:
+2) Display development notes by appending ?devnote to any page:
 
 E.g., http://localhost/about-us/?devnote
