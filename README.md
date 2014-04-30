@@ -43,3 +43,5 @@ Optionally, pass a second parameter, false, to prevent the development note from
 2) Display development notes by appending ?devnote to any page:
 
 E.g., http://localhost/about-us/?devnote
+
+![CFS Dev Tools Screenshot](/cfs-dev-tools.jpg?raw=true)
