@@ -15,7 +15,7 @@ Network: true
  * @return [true|false]
  */
 function is_devmode() {
-	if (ENVIRONMENT == 'DEVELOPMENT' && is_user_logged_in() && isset($_GET['devnote']) ) {
+	if (WP_DEBUG === true && is_user_logged_in() && isset($_GET['devnote']) ) {
 		return true;
 	}
 }
