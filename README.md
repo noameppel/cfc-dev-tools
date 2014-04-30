@@ -20,7 +20,7 @@ This WordPress plugin allows you to easily place various development notes throu
 
     define('WP_DEBUG', true ); 
     define('SAVEQUERIES', true );
-deve
+
 Use https://github.com/cleanforestco/wp-config/blob/master/wp-config.php as a reference.
 
 ## USAGE:
