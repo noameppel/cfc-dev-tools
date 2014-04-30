@@ -2,7 +2,7 @@ CFS Development Tools for WordPress
 =============
 
 This WordPress plugin allows you to easily place various development notes throughout your website. The development notes will appear on your page and the browser's console only when:
-* You are working on your local development environment.
+* You have WP_DEBUG set to true in your wp-config.php file.
 * You are logged into WordPress.
 * ?devnote is appended to the URL.
 
@@ -16,11 +16,11 @@ This WordPress plugin allows you to easily place various development notes throu
 
 1) Place in /wp-content/mu-plugins/ folder.
 
-2) Make sure ENVIRONMENT and SAVEQUERIES constants are defined in your wp-config.php file.
+2) Make sure WP_DEBUG and SAVEQUERIES constants are defined in your wp-config.php file.
 
-    define('ENVIRONMENT', 'DEVELOPMENT');
+    define('WP_DEBUG', true ); 
     define('SAVEQUERIES', true );
-
+deve
 Use https://github.com/cleanforestco/wp-config/blob/master/wp-config.php as a reference.
 
 ## USAGE:
