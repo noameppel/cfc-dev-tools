@@ -2,9 +2,9 @@ CFS Development Tools for WordPress
 =============
 
 This WordPress plugin allows you to easily place various development notes throughout your website. The development notes will appear on your page and the browser's console only when:
-* You have WP_DEBUG set to true in your wp-config.php file.
-* You are logged into WordPress as an administrator.
-* ?devnote is appended to the URL.
+* You have WP_DEBUG set to true in your wp-config.php file. This allows you to prevent the display of development notes on a production server if you wish.
+* You are logged into WordPress as an Administrator.
+* ?devnote is appended to the URL. (http://domain.com/page/?devnote)
 
 ## FEATURES:
 * Allows you to add development notes which appear on your page and in the browser's console.
