@@ -55,8 +55,8 @@ function cfs_custom_google_fonts() {
 		wp_enqueue_style( 'googleFonts');
 	}
 }
-add_action('wp_print_styles', 'cfs_custom_google_fonts');
-
+add_action('wp_enqueue_scripts', 'cfs_custom_google_fonts');
+add_action( 'admin_enqueue_scripts', 'cfs_custom_google_fonts');
 /**
  * [cfs_show_db_queries will display total number of DB queries and the time required to generate page]
  * @echo in footer
@@ -120,3 +120,4 @@ function cfs_devnote_css() {
 	}
 }
 add_action( 'wp_head', 'cfs_devnote_css' );
+add_action( 'admin_head', 'cfs_devnote_css');
