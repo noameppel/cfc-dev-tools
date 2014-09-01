@@ -23,7 +23,7 @@ This WordPress plugin allows you to easily place various development notes throu
 
 Use https://github.com/cleanforestco/wp-config/blob/master/wp-config.php as a reference.
 
-## Sublime:
+## SUBLIME TEXT:
 
 For those who use the excellent Sublime Text editor, there is also a snippet included which enables you to type devnote and then press the tab key for quickly inserting development notes. Please reference the Sublime Text documentation for instructions on how to install and manage snippets.
 
