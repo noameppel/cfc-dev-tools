@@ -44,4 +44,8 @@ Optionally, pass a second parameter, false, to prevent the development note from
 
 E.g., http://localhost/about-us/?devnote
 
+## Sublime:
+
+For those who use the excellent Sublime Text editor, there is also a snippet included which enables you to type devnote and then press the tab key for quickly inserting development notes. Please reference the Sublime Text documentation for instructions on how to install and manage snippets.
+
 ![CFS Dev Tools Screenshot](/cfs-dev-tools.jpg?raw=true)
