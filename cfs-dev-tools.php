@@ -22,6 +22,20 @@ function cfs_is_devmode() {
 
 add_action('init', 'cfs_is_devmode');
 
+
+/**
+ * [cfc_enqueue]
+ * Load custom cfc.css and cfc.js
+ */
+function cfc_enqueue() {
+    wp_enqueue_style( 'cfcstyle', get_stylesheet_directory_uri() . '/css/cfc.css', array(), '1.0.0', 'all' );
+    wp_enqueue_script('javascript', get_bloginfo ('stylesheet_directory') . '/js/cfc.js',array('jquery'),'1.0');
+
+}
+add_action( 'wp_enqueue_scripts', 'cfc_enqueue', 100 );
+
+
+
 /**
  * [devnote Development Notes]
  * @param  [string|array] $note
