@@ -1,4 +1,4 @@
-CFS Development Tools for WordPress
+CFC Development Tools for WordPress
 =============
 
 This WordPress plugin allows you to easily place various development notes throughout your website. The development notes will appear on your page and the browser's console only when:
@@ -48,4 +48,4 @@ Optionally, pass a second parameter, false, to prevent the development note from
 
 E.g., http://localhost/about-us/?devnote
 
-![CFS Dev Tools Screenshot](/cfs-dev-tools.jpg?raw=true)
+![CFC Dev Tools Screenshot](/cfc-dev-tools.jpg?raw=true)
